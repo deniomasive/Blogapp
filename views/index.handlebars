@@ -1,39 +1,36 @@
-<div class="jumbotron">
-    <h1 class="display-4">Bem Vindo ao Blog de Node!</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
-        featured content or information.</p>
-    <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+<div class="jumbotron text-center bg-primary text-white">
+    <h1 class="display-4">Bem-vindo ao Blog de Node!</h1>
+    <p class="lead">Explorando Node.js, MongoDB e desenvolvimento web moderno.</p>
+    <hr class="my-4 bg-light">
+    <p>Aprenda, pratique e acompanhe novidades sobre programação full-stack.</p>
     <p class="lead">
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        <a class="btn btn-light btn-lg" href="/quiz" role="button">Teste seus conhecimentos</a>
     </p>
 </div>
+
 <hr>
 
-
-<div class="card mt-3">
-    <div class="card-body">
+<div class="card shadow mt-3">
+    <div class="card-body text-center">
         <h3>Quiz Interativo</h3>
-        <p>Teste os seus conhecimentos de programação!</p>
-        <a href="/quiz" class="btn btn-primary">Ir para o Quiz</a>
+        <p>Coloque seus conhecimentos à prova com desafios de programação e matemática!</p>
+        <a href="/quiz" class="btn btn-success btn-lg">Ir para o Quiz</a>
     </div>
 </div>
 
-<h2>Postagens recentes</h2>
+<h2 class="mt-4">Postagens Recentes</h2>
 
 {{#each postagens}}
-<div class="card mb-3">
+<div class="card mb-3 shadow-sm">
     <div class="card-body">
         <h4 class="card-title">{{titulo}}</h4>
         <p class="card-text">{{descricao}}</p>
-        <a href=""><button class="btn btn-success">Leia mais...</button></a>
-
+        <a href="#"><button class="btn btn-outline-primary">Leia mais...</button></a>
         <hr>
-        <small>Categoria: {{categoria.nome}}</small> <br>
-        <small>Data de publicação: {{data}}</small>
-
+        <small class="text-muted">Categoria: {{categoria.nome}}</small><br>
+        <small class="text-muted">Publicado em: {{data}}</small>
     </div>
 </div>
 {{else}}
-<h5>Nenhuma Postagem</h5>
+<h5 class="text-muted">Nenhuma Postagem</h5>
 {{/each}}
