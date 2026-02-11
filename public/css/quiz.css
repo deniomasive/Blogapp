@@ -103,3 +103,9 @@ button:hover {
     background-color: #073b4c;
     /* azul mais escuro */
 }
+
+.mjx-chtml {
+    font-size: 1.2em;
+    color: #ffd166;
+    /* amarelo para destacar fórmulas */
+}
