@@ -10,12 +10,12 @@ require("../models/Categoria");
 const Categoria = mongoose.model("categorias");
 
 // rota inicial admin
-router.get("/", eAdmin, (req, res) => {
+router.get("/", (req, res) => {
     res.render("admin/index");
 });
 
 // rota listar categorias
-router.get("/categorias", eAdmin, (req, res) => {
+router.get("/categorias", (req, res) => {
     Categoria.find().sort({ date: "desc" }).lean().then((categorias) => {
         res.render("admin/categorias", { categorias });
     }).catch((err) => {
@@ -25,7 +25,7 @@ router.get("/categorias", eAdmin, (req, res) => {
 });
 
 // rota formulário adicionar categoria
-router.get("/categorias/add", eAdmin, (req, res) => {
+router.get("/categorias/add", (req, res) => {
     res.render("admin/addcategorias");
 });
 
@@ -59,7 +59,7 @@ router.post("/categorias/nova", (req, res) => {
 });
 
 // rota editar categoria
-router.get("/categorias/edit/:id", eAdmin, (req, res) => {
+router.get("/categorias/edit/:id", (req, res) => {
     Categoria.findOne({ _id: req.params.id }).lean().then((categoria) => {
         if (!categoria) {
             req.flash("error_msg", "Categoria não encontrada");
