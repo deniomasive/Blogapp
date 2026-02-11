@@ -1,0 +1,13 @@
+<h2>Criar Novo Quiz</h2>
+<form action="/quiz/novo" method="POST">
+    <label>Pergunta:</label><br>
+    <input type="text" name="pergunta" required><br><br>
+
+    <label>Opções (separadas por vírgula):</label><br>
+    <input type="text" name="opcoes" required><br><br>
+
+    <label>Resposta correta (índice da opção, começando em 0):</label><br>
+    <input type="number" name="respostaCorreta" required><br><br>
+
+    <button type="submit">Salvar</button>
+</form>

@@ -1,6 +1,5 @@
 const express = require("express");
 const { engine } = require("express-handlebars");
-const bodyParser = require("body-parser");
 const path = require("path");
 const app = express();
 const admin = require("./routes/admin");
@@ -11,12 +10,11 @@ const Handlebars = require("handlebars");
 const passport = require("passport");
 
 require('dotenv').config();
+// Body Parser
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-const quiz = require("./routes/quiz");
-app.use("/quiz", quiz);
-app.get("/", (req, res) => {
-    res.render("index"); // renderiza a view principal
-});
+
 
 
 require("./models/Postagem");
@@ -51,9 +49,7 @@ app.use((req, res, next) => {
     next();
 });
 
-// Body Parser
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+
 
 // Handlebars
 app.engine("handlebars", engine({ defaultLayout: "main" }));
@@ -118,6 +114,8 @@ app.get("/404", (req, res) => {
 
 app.use("/admin", admin);
 app.use("/usuarios", usuarios);
+const quiz = require("./routes/quiz");
+app.use("/quiz", quiz);
 
 const PORT = process.env.PORT || 8081;
 app.listen(PORT, () => {

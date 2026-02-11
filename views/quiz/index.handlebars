@@ -1,15 +1,27 @@
-<h2>Quiz</h2>
-<form action="/quiz/responder" method="POST">
-    {{#each perguntas}}
-    <div>
-        <p>{{this.pergunta}}</p>
-        {{#each this.opcoes}}
-        <label>
-            <input type="radio" name="q{{@../index}}" value="{{@index}}">
-            {{this}}
-        </label><br>
+<div class="quiz-container">
+    <h2>Quiz</h2>
+    <form action="/quiz/responder" method="POST">
+        {{#each perguntas}}
+        <div class="question-block">
+            <p>{{this.pergunta}}</p>
+            {{#each this.opcoes}}
+            <label>
+                <input type="radio" name="q{{@../index}}" value="{{@index}}">
+                {{this}}
+            </label>
+            {{/each}}
+        </div>
         {{/each}}
-    </div>
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+
+<h2>Lista de Quizzes</h2>
+<ul>
+    {{#each quizzes}}
+    <li>
+        {{this.pergunta}}
+        <a href="/quiz/pergunta/{{@index}}">Responder</a>
+    </li>
     {{/each}}
-    <button type="submit">Enviar</button>
-</form>
+</ul>

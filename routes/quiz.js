@@ -9,21 +9,63 @@ router.get("/", async (req, res) => {
     const perguntas = await Quiz.find().lean();
     res.render("quiz/index", { perguntas });
 });
+router.get("/novo", (req, res) => {
+    res.render("quiz/novo");
+});
+router.post("/novo", async (req, res) => {
+    try {
+        const { pergunta, opcoes, respostaCorreta } = req.body;
+        const quiz = new Quiz({
+            pergunta,
+            opcoes: opcoes.split(",").map(o => o.trim()),
+            respostaCorreta: parseInt(respostaCorreta)
+        });
+        await quiz.save();
+        req.flash("success_msg", "Quiz criado com sucesso!");
+        res.redirect("/quiz");
+    } catch (err) {
+        console.error("Erro ao criar quiz:", err);
+        req.flash("error_msg", "Erro ao salvar quiz.");
+        res.redirect("/quiz/novo");
+    }
+});
+
+router.get("/", async (req, res) => {
+    try {
+        const quizzes = await Quiz.find().lean();
+        res.render("quiz/index", { quizzes });
+    } catch (err) {
+        req.flash("error_msg", "Erro ao carregar quizzes");
+        res.redirect("/");
+    }
+});
+
+
 
 // rota POST para verificar respostas
 router.post("/responder", async (req, res) => {
-    const respostas = req.body; // objeto com {q0: "0", q1: "2", ...}
-    const perguntas = await Quiz.find().lean();
-    let score = 0;
+    try {
+        console.log("Respostas recebidas:", req.body); // debug
 
-    perguntas.forEach((p, i) => {
-        if (parseInt(respostas[`q${i}`]) === p.respostaCorreta) {
-            score++;
-        }
-    });
+        const respostas = req.body;
+        const perguntas = await Quiz.find().lean();
+        let score = 0;
 
-    res.render("quiz/resultado", { score, total: perguntas.length });
+        perguntas.forEach((p, i) => {
+            // só compara se a resposta existir
+            if (respostas[`q${i}`] !== undefined &&
+                parseInt(respostas[`q${i}`]) === p.respostaCorreta) {
+                score++;
+            }
+        });
+
+        res.render("quiz/resultado", { score, total: perguntas.length });
+    } catch (err) {
+        console.error("Erro ao processar respostas:", err);
+        res.status(500).send("Erro interno ao calcular resultado.");
+    }
 });
+
 // rota para inserir perguntas iniciais no banco
 router.get("/seed", async (req, res) => {
     try {
