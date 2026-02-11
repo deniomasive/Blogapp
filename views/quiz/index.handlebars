@@ -1,0 +1,15 @@
+<h2>Quiz</h2>
+<form action="/quiz/responder" method="POST">
+    {{#each perguntas}}
+    <div>
+        <p>{{this.pergunta}}</p>
+        {{#each this.opcoes}}
+        <label>
+            <input type="radio" name="q{{@../index}}" value="{{@index}}">
+            {{this}}
+        </label><br>
+        {{/each}}
+    </div>
+    {{/each}}
+    <button type="submit">Enviar</button>
+</form>

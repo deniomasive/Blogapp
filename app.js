@@ -12,6 +12,12 @@ const passport = require("passport");
 
 require('dotenv').config();
 
+const quiz = require("./routes/quiz");
+app.use("/quiz", quiz);
+app.get("/", (req, res) => {
+    res.render("index"); // renderiza a view principal
+});
+
 
 require("./models/Postagem");
 const Postagem = mongoose.model("postagens");
