@@ -10,6 +10,9 @@ const flash = require("connect-flash");
 const Handlebars = require("handlebars");
 const passport = require("passport");
 
+require('dotenv').config();
+
+
 require("./models/Postagem");
 const Postagem = mongoose.model("postagens");
 require("./models/Categoria");
@@ -52,8 +55,8 @@ app.set("view engine", "handlebars");
 
 // Mongoose
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/blogapp").then(() => {
-    console.log("Conectado ao Mongo");
+mongoose.connect(process.env.MONGO_URI).then(() => {
+    console.log("Conectado ao MongoDB Atlas");
 }).catch((err) => {
     console.log("Erro ao se conectar: " + err);
 });
