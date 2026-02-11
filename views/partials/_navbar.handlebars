@@ -1,10 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(90deg, #0d6efd, #6610f2);">
-    <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="#">Blog de Node</a>
+    <div class="container-fluid d-flex justify-content-between">
+        <!-- Marca -->
+        <a class="navbar-brand fw-bold" href="#">Moz-Gondza</a>
 
-        <!-- Botão de menu no canto superior direito -->
-        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <!-- Botão no canto superior direito -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -18,23 +19,13 @@
             </div>
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/categorias">Categorias</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/categorias">Categorias</a></li>
                     {{#if user}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/usuarios/logout">Sair</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="/usuarios/logout">Sair</a></li>
                     {{else}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/usuarios/login">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/usuarios/registro">Registro</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="/usuarios/login">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/usuarios/registro">Registro</a></li>
                     {{/if}}
                 </ul>
                 <form class="d-flex mt-3" role="search">
