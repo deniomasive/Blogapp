@@ -1,0 +1,56 @@
+.exame {
+    max-width: 950px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+}
+
+.exame h2,
+.exame h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #1a73e8;
+}
+
+.questao {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f1f5ff;
+    border-left: 5px solid #1a73e8;
+    border-radius: 6px;
+}
+
+.questao h4 {
+    color: #0d47a1;
+    margin-bottom: 10px;
+}
+
+.alternativas {
+    display: flex;
+    flex-wrap: wrap;
+    /* quebra linha se não couber */
+    gap: 25px;
+    /* espaçamento entre alternativas */
+    margin-top: 12px;
+    font-size: 1rem;
+}
+
+.alternativas span {
+    padding: 6px 12px;
+    background: #eef3fd;
+    border-radius: 6px;
+}
+
+.resolucao {
+    margin: 20px 0;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.formula {
+    background: #eef3fd;
+    padding: 12px;
+    border-radius: 6px;
+    margin: 10px 0;
+    text-align: center;
+}
