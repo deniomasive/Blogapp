@@ -5,6 +5,10 @@ const bcrypt = require("bcryptjs"); // para criptografar senha
 require("../models/Usuario");
 const passport = require("passport")
 const Usuario = mongoose.model("usuarios");
+const Postagem = require("../models/Postagem");
+
+
+
 
 router.get("/registro", (req, res) => {
     res.render("usuarios/registro");
@@ -88,6 +92,55 @@ router.get("/logout", (req, res, next) => {
         res.redirect("/");
     });
 });
+
+// rota detalhe da postagem
+router.get("/postagem/:id", async (req, res) => {
+    try {
+        const postagem = await Postagem.findById(req.params.id)
+            .populate("categoria")
+            .lean();
+        res.render("postagem/index", { postagem });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Erro no servidor");
+    }
+});
+
+// rota principal de exames: lista todos os anos
+router.get("/exames", (req, res) => {
+    const anos = [2026, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012];
+    res.render("exames/index", { anos });
+});
+
+// rota para exames de um ano específico
+router.get("/exames/:ano", (req, res) => {
+    const ano = req.params.ano;
+    res.render("exames/ano", { ano });
+});
+
+// Matemática I
+router.get("/exames/:ano/matematica1", (req, res) => {
+    const ano = req.params.ano;
+    res.render(`resolucao/${ano}/matematica1`, { ano, exame: "Matemática I UEM" });
+});
+
+// Matemática II
+router.get("/exames/:ano/matematica2", (req, res) => {
+    const ano = req.params.ano;
+    res.render(`resolucao/${ano}/matematica2`, { ano, exame: "Matemática II UEM" });
+});
+
+// Matemática III
+router.get("/exames/:ano/matematica3", (req, res) => {
+    const ano = req.params.ano;
+    res.render(`resolucao/${ano}/matematica3`, { ano, exame: "Matemática III UEM" });
+});
+
+
+
+
+
+
 
 
 module.exports = router;

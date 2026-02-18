@@ -3,10 +3,11 @@
     <div class="card-body">
         <h4 class="card-title">{{titulo}}</h4>
         <p class="card-text">{{descricao}}</p>
-        <a href=""><button class="btn btn-success">Leia mais...</button></a>
+        <a href="/postagem/{{_id}}"><button class="btn btn-success">Leia mais...</button></a>
 
         <hr>
         <small>Categoria: {{categoria.nome}}</small> <br>
+        <p>{{postagem.conteudo}}</p>
         <small>Data de publicação: {{data}}</small>
 
     </div>

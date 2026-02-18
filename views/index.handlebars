@@ -17,6 +17,16 @@
         <a href="/quiz" class="btn btn-success btn-lg">Ir para o Quiz</a>
     </div>
 </div>
+<br>
+<div class="card shadow bg-secondary text-white mt-3">
+    <div class="card-body text-center">
+        <h3>Exames de Admissão Resolvidos Passo a Passo</h3>
+        <p>Aprofunde seus estudos com resoluções completas e comentadas. Cada questão é explicada detalhadamente,
+            mostrando o raciocínio e as técnicas necessárias para chegar à resposta correta. Ideal para quem quer
+            aprender de forma prática e ganhar segurança para enfrentar provas de admissão.</p>
+        <a href="/exames" class="btn btn-success btn-lg">Entrar</a>
+    </div>
+</div>
 
 <h2 class="mt-4">Postagens Recentes</h2>
 
@@ -25,7 +35,7 @@
     <div class="card-body">
         <h4 class="card-title">{{titulo}}</h4>
         <p class="card-text">{{descricao}}</p>
-        <a href="#"><button class="btn btn-outline-primary">Leia mais...</button></a>
+        <a href="/postagem/{{_id}}"><button class="btn btn-outline-primary">Leia mais...</button></a>
         <hr>
         <small class="text-muted">Categoria: {{categoria.nome}}</small><br>
         <small class="text-muted">Publicado em: {{data}}</small>

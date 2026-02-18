@@ -1,13 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const mongoose = require("mongoose");
 
-// importa os models
-require("../models/Postagem");
-const Postagem = mongoose.model("postagens");
-const { eAdmin } = require("../helpers/eAdmin")
-require("../models/Categoria");
-const Categoria = mongoose.model("categorias");
+const Postagem = require("../models/Postagem");
+const Categoria = require("../models/Categoria");
+
+const { eAdmin } = require("../helpers/eAdmin");
 
 // rota inicial admin
 router.get("/", (req, res) => {

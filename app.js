@@ -8,6 +8,8 @@ const session = require("express-session");
 const flash = require("connect-flash");
 const Handlebars = require("handlebars");
 const passport = require("passport");
+app.use(express.static("public"));
+
 
 require('dotenv').config();
 // Body Parser
@@ -16,12 +18,11 @@ app.use(express.json());
 
 
 
+const Postagem = require("./models/Postagem");
+const Categoria = require("./models/Categoria");
+const usuarios = require("./routes/usuario")
+app.use("/", usuarios);
 
-require("./models/Postagem");
-const Postagem = mongoose.model("postagens");
-require("./models/Categoria");
-const Categoria = mongoose.model("categorias");
-const usuarios = require("./routes/usuario");
 require("./config/auth")(passport);
 
 // Helper para handlebars

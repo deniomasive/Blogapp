@@ -1,7 +1,7 @@
-const mongoose = require("mongoose")
-const Schema = mongoose.Schema
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const Postagem = new Schema({
+const PostagemSchema = new Schema({
     titulo: {
         type: String,
         required: true
@@ -16,13 +16,14 @@ const Postagem = new Schema({
     },
     categoria: {
         type: Schema.Types.ObjectId,
-        ref: "categorias",
+        ref: "Categoria", // usa o nome do modelo Categoria
         required: true
     },
     data: {
         type: Date,
         default: Date.now
     }
-})
+});
 
-mongoose.model("postagens", Postagem)
+// Exporta corretamente o modelo
+module.exports = mongoose.model("Postagem", PostagemSchema);

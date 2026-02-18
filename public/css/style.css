@@ -1,0 +1,133 @@
+.questao {
+    background: #e8f0fe;
+    border: 2px solid #1a73e8;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 6px rgba(235, 136, 5, 0.1);
+}
+
+.questao h3 {
+    margin-top: 0;
+    color: #1a73e8;
+}
+
+.questao .resposta {
+    font-weight: bold;
+    color: #0d47a1;
+    margin-top: 10px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #f4f6f9;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+h3 {
+    text-align: center;
+    color: #1a73e8;
+    margin-top: 30px;
+    font-size: 2rem;
+}
+
+.lista-anos {
+    display: flex;
+    flex-direction: column;
+    /* força os itens a ficarem em coluna */
+    align-items: center;
+    /* centraliza os botões na página */
+    gap: 15px;
+    /* espaçamento entre os botões */
+    margin: 30px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lista-anos li {
+    width: 100%;
+    /* cada item ocupa toda a largura disponível */
+    max-width: 300px;
+    /* largura máxima para não ficar exagerado */
+}
+
+.lista-anos a {
+    display: block;
+    /* ocupa toda a largura do <li> */
+    text-align: center;
+    /* texto centralizado dentro do botão */
+    padding: 12px 20px;
+    background: #1a73e8;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.lista-anos a:hover {
+    background: #0d47a1;
+    transform: scale(1.05);
+}
+
+.sub-lista {
+    list-style: none;
+    /* remove bolinhas */
+    padding: 0;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    /* coloca em coluna */
+    gap: 12px;
+    /* espaçamento entre os links */
+}
+
+.sub-lista li a {
+    display: block;
+    padding: 12px 18px;
+    background: #1a73e8;
+    /* azul principal */
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.3s, transform 0.2s;
+    text-align: center;
+}
+
+.sub-lista li a:hover {
+    background: #0d47a1;
+    /* azul mais escuro ao passar o rato */
+    transform: scale(1.05);
+    /* efeito leve de zoom */
+}
+
+
+.exame {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.exame h4 {
+    margin-top: 0;
+    color: #1a73e8;
+    font-size: 1.4rem;
+}
+
+.conteudo {
+    white-space: pre-line;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+
+.conteudo {
+    white-space: pre-line;
+    /* respeita quebras de linha */
+}

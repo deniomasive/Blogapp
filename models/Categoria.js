@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// Definição do Schema
-const Categoria = new Schema({
+const CategoriaSchema = new Schema({
     nome: {
         type: String,
         required: true
@@ -17,5 +16,5 @@ const Categoria = new Schema({
     }
 });
 
-// Exporta o modelo
-mongoose.model("categorias", Categoria);
+// Exporta corretamente o modelo
+module.exports = mongoose.model("Categoria", CategoriaSchema);
